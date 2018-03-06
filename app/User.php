@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use App\Traits\Permissions\HasPermissionsTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasPermissionsTrait;
 
     /**
      * The attributes that are mass assignable.
