@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user = request()->user();
+    dump($user->hasRole('user'));
 });
 
 Auth::routes();
