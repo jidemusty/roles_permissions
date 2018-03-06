@@ -17,6 +17,16 @@ trait HasPermissionsTrait
         }
     }
 
+    public function hasPermissionTo($permission)
+    {
+        return $this->hasPermission($permission);
+    }
+
+    protected function hasPermission($permission)
+    {
+        return (bool) $this->permissions->where('name', $permission->name)->count();
+    }
+
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'users_roles');
