@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     $user = request()->user();
-    dump($user->hasRole('user'));
+    dd($user->can('edit posts'));
 });
 
 Auth::routes();
